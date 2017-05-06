@@ -32,6 +32,7 @@ client = TweetStream::Client.new
 # end
 client.userstream do |status|
   puts status.text
+  Tweet.create(status: status.text)
   puts JSON.parse(status)
 end
 
